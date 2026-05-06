@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PrismTerminal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app.css" />
+</head>
+
+<body style="margin: 0; overflow: hidden">
+<div id="out">
+    <div class="avalonia-splash">
+        <div class="splash-content">
+            <img class="splash-logo" src="./logo_dark.png" alt="PrismTerminal Logo" />
+            <h1 class="splash-title">PrismTerminal</h1>
+            <p class="splash-subtitle">Driven by KagamiStudio</p>
+        </div>
+    </div>
+</div>
+<script type="module">
+    const bootstrapUrl = new URL("./main.js", window.location.href);
+    const cacheBustToken = new URL(window.location.href).searchParams.get("ptv");
+
+    if (cacheBustToken) {
+        bootstrapUrl.searchParams.set("ptv", cacheBustToken);
+    }
+
+    await import(bootstrapUrl.toString());
+</script>
+</body>
+
+</html>

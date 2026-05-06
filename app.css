@@ -1,0 +1,212 @@
+﻿/* HTML styles for the splash screen */
+.avalonia-splash {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #15181f;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.splash-logo {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    animation: float 4s ease-in-out infinite;
+}
+
+.splash-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    letter-spacing: 1px;
+}
+
+.splash-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateZ(0);
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    }
+    50% {
+        transform: translateY(-8px) translateZ(0);
+        filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
+    }
+    100% {
+        transform: translateY(0px) translateZ(0);
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    }
+}
+
+/* Light theme styles */
+@media (prefers-color-scheme: light) {
+    /* Styles removed as background is consistent */
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Styles removed as background is consistent */
+}
+
+.avalonia-splash.splash-close {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+}
+
+.prism-cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.prism-cookie-panel {
+    /* ReSharper disable once CssNotResolved */
+    /* ReSharper disable once InvalidValue */
+    width: min(880px, calc(100vw - 32px));
+    background: rgba(21, 24, 31, 0.96);
+    color: #f7f9fc;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 16px 18px;
+    pointer-events: auto;
+    backdrop-filter: blur(6px);
+}
+
+.prism-cookie-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.prism-cookie-description {
+    margin: 8px 0 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(247, 249, 252, 0.9);
+}
+
+.prism-cookie-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.prism-cookie-button {
+    border: 0;
+    border-radius: 9px;
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.prism-cookie-button:active {
+    transform: translateY(1px);
+}
+
+.prism-cookie-button-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f7f9fc;
+}
+
+.prism-cookie-button-secondary:hover {
+    opacity: 0.86;
+}
+
+.prism-cookie-button-primary {
+    background: #3f8cff;
+    color: #ffffff;
+}
+
+.prism-cookie-button-primary:hover {
+    opacity: 0.9;
+}
+
+/* ── Edge Performance Warning Modal ── */
+.prism-edge-warning-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100000;
+    backdrop-filter: blur(4px);
+}
+
+.prism-edge-warning-panel {
+    width: min(520px, calc(100vw - 48px));
+    background: rgba(21, 24, 31, 0.97);
+    color: #f7f9fc;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 24px 28px;
+    backdrop-filter: blur(8px);
+    animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.prism-edge-warning-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffb347;
+}
+
+.prism-edge-warning-description {
+    margin: 12px 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(247, 249, 252, 0.88);
+}
+
+.prism-edge-warning-actions {
+    display: flex;
+    justify-content: flex-end;
+}
